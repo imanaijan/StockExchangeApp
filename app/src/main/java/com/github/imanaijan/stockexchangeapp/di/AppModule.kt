@@ -3,7 +3,7 @@ package com.github.imanaijan.stockexchangeapp.di
 import android.app.Application
 import androidx.room.Room
 import com.github.imanaijan.stockexchangeapp.data.local.StockDatabase
-import com.github.imanaijan.stockexchangeapp.data.remote.dto.StockApi
+import com.github.imanaijan.stockexchangeapp.data.remote.StockApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
