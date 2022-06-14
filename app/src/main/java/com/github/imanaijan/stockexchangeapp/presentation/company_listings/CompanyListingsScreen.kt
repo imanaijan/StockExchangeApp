@@ -1,5 +1,6 @@
 package com.github.imanaijan.stockexchangeapp.presentation.company_listings
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,6 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.github.imanaijan.stockexchangeapp.presentation.destinations.CompanyInfoScreenDestination
+import com.github.imanaijan.stockexchangeapp.ui.theme.DarkBlue
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
@@ -34,6 +37,7 @@ fun CompanyListingsScreen(
     val state = viewModel.state
     Column(
         modifier = Modifier.fillMaxSize()
+        .background(DarkBlue)
     ) {
         OutlinedTextField(
             value = state.searchQuery,
@@ -64,7 +68,9 @@ fun CompanyListingsScreen(
                         modifier = Modifier
                             .fillMaxWidth()
                             .clickable {
-                                // TODO: Navigate to detail screen
+                                navigator.navigate(
+                                    CompanyInfoScreenDestination(company.symbol)
+                                )
                             }
                             .padding(16.dp)
                     )
